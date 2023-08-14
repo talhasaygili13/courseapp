@@ -1,10 +1,10 @@
-from django.http import HttpResponse
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path("anasayfa", views.home),
-    path("kurslar", views.kurslar),
+    path("", views.index),
+    path('<slug:slug>', views.details, name='course_details'),
+    path('category/<int:category_id>', views.getCoursesByCategoryId),
+    path('category/<str:category_name>', views.getCoursesByCategory, name='courses_by_category'),
 ]
 

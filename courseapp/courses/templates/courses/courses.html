@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block page_title %}
+    Courses
+{% endblock page_title %}
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <h1> {{category | title}} </h1>
+            <p> {{ category_text}} </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

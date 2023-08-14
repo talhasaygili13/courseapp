@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}
+    Homepage
+{% endblock page_title %}
+
+
+{% block content %}
+<div class="container mt-3s">
+    <div class="row">
+        <div class="col-3">
+            <!-- Menu-->
+            {% include 'courses/partials/_categories.html' %}
+        </div>
+        <div class="col-9">
+            <!-- Content-->
+            <h1>Homepage</h1>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
