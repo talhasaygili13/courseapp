@@ -69,20 +69,12 @@ def programlama(request):
 def mobil_uygulamalar(request):
     return HttpResponse('Mobil uygulamalar kurs Listesi')
 
-def getCoursesByCategory(request, category_name):
-    try:
-        category_text = data[category_name]
-        return render(request, 'courses/courses.html', {
-            'category' : category_name,
-            'category_text': category_text
-        })
-    except:
-        return HttpResponseNotFound('Yanlis kategori secimi')
+def getCoursesByCategory(request, slug):
+    courses = Course.objects.filter(categories__slug=slug, isActive=True)
+    categories = Category.objects.all()
 
-def getCoursesByCategoryId(request, category_id):
-    category_list = list(data.keys())
-    if category_id > len(category_list):
-        return HttpResponseNotFound('Yanlis kategori secimi')
-    category_name = category_list[category_id - 1]
-    redirect_url = reverse('courses_by_category', args=[category_name])
-    return redirect(redirect_url)
+    return render(request, 'courses/index.html',{
+        'categories': categories,
+        'courses': courses,
+        'selectedCategory': slug
+    })
