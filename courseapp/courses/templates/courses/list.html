@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block page_title %}
+    Courses
+{% endblock page_title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <!-- Menu-->
+            {% include 'courses/partials/_categories.html' %}
+        <div class="col-9">
+            {% if page_obj.object_list|length == 0 %}
+                <div class="alert alert-warning"> Course Not Found</div>
+            {% endif %}
+            {% for course in page_obj.object_list %}
+                    {% include 'courses/partials/_course.html' %}
+            {% endfor %}
+
+            {% include 'courses/partials/_pagination.html' %}
+        </div>
+    </div>
+</div>
+{% endblock %}

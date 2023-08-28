@@ -7,19 +7,24 @@
     <link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
 {% endblock %}
 {% block content %}
-<div class="container mt-3">
+<div class="container" style='display: flex;'>
     <div class="row">
-        <div class="col-3">
-            <!-- Menu-->
+        <div class="col-11" style='float: left; margin-right: 60px;'>
             {% include 'courses/partials/_categories.html' %}
-        <div class="col-9">
+        </div>
+        <div class="col-7">
+        <div>
+            {% include 'courses/partials/_slider.html' %}
+        </div>
             {% if courses|length == 0 %}
                 <div class="alert alert-warning"> Course Not Found</div>
             {% endif %}
             {% for course in courses %}
-                    {% include 'courses/partials/_course.html' %}
+                {% include 'courses/partials/_course.html' %}
             {% endfor %}
         </div>
     </div>
 </div>
+
+
 {% endblock %}

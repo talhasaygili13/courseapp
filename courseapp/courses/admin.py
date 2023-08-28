@@ -1,16 +1,15 @@
 from django.contrib import admin
-from .models import Course,Category
+from .models import Course, Category, Slider
 
-# Register your models here.
 
 
 @admin.register(Course)
 class AdminCourse(admin.ModelAdmin):
-    list_display = ('title', 'isActive', 'slug','category_list',)
+    list_display = ('title', 'isActive','isHome', 'slug','category_list',)
     list_display_links = ('title', 'slug')
     prepopulated_fields = {'slug': ('title',),}
-    list_filter = ('isActive',)
-    list_editable = ('isActive',)
+    list_filter = ('isActive','isHome',)
+    list_editable = ('isActive','isHome',)
     search_fields = ('title',)
     def category_list(self, obj):
         html = ''
@@ -22,10 +21,12 @@ class AdminCourse(admin.ModelAdmin):
 
 @admin.register(Category)
 class AdminCategory(admin.ModelAdmin):
-    list_display = ('name', 'slug','course_count')
+    list_display = ('name', 'slug',)
     list_display_links = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',),}
     search_fields = ('name',)
-    
+
     def course_count(self, obj):
         return obj.course.count()
+
+admin.site.register(Slider)
