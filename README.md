@@ -19,22 +19,32 @@ CourseApp, eğitim kurslarını düzenlemek, görüntülemek ve yönetmek için 
 Sanal ortamı (venv) oluşturun ve etkinleştirin:
 
 python -m venv venv
+
 source venv/bin/activate  # Linux veya macOS
+
 venv\Scripts\activate    # Windows
+
 Gerekli bağımlılıkları yükleyin:
 
 pip install -r requirements.txt
+
 Veritabanını oluşturun ve uygulamayı başlatın:
 
 python manage.py makemigrations
+
 python manage.py migrate
+
 python manage.py runserver
+
 Tarayıcınızda http://127.0.0.1:8000 adresine giderek uygulamayı görüntüleyebilirsiniz.
 
 Kullanım
 Tarayıcınızda http://127.0.0.1:8000 adresine gidin.
+
 Kursları görüntüleyin veya yeni kurs ekleyin.
+
 Kursları düzenleyin veya silin.
+
 Kurs detaylarına erişmek için kurs başlığına tıklayın.
 
 
