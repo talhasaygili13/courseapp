@@ -2,7 +2,7 @@
 CourseApp, eğitim kurslarını düzenlemek, görüntülemek ve yönetmek için kullanılan bir web uygulamasıdır. Bu uygulama sayesinde kullanıcılar, farklı kursları inceleyebilir, yeni kurslar ekleyebilir ve var olan kursları düzenleyebilir.
 
 ## Özellikler
-
+ 
 - Kursları görüntüleme
 - Yeni kurs ekleme
 - Kursları düzenleme
